@@ -27,6 +27,8 @@ app.use("/api/user",userRouter)
 app.use("/api/message",messageRoute)
 app.use("/api/users",allUsersRoute)
 
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
 
 app.get('/',(req,res)=>{
     console.log("Server running")
