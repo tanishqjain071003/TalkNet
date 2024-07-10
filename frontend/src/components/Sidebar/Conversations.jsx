@@ -1,10 +1,11 @@
 import {React,useState,useEffect} from 'react'
 import axios from "axios"
 import Conversation from './Conversation.jsx'
+import { useAuthContext } from '../../context/AuthContext.jsx'
 
 const Conversations = () => {
   	const [users,setUsers] = useState([]);
-	const url = "http://localhost:4000";
+	const {url} = useAuthContext();
 	const token = localStorage.getItem("token");
 
 	const getAllUsers = async ()=>{
