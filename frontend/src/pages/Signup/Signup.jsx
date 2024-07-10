@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
+import { useAuthContext } from '../../context/AuthContext.jsx'
 import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-  const url = "http://localhost:4000"
+    const {url} = useAuthContext();
   const navigate = useNavigate();
 
   const [inputs, setInputs] = useState({
