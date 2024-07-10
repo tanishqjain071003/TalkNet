@@ -11,11 +11,11 @@ export const useSocketContext = () => {
 export const SocketContextProvider = ({ children }) => {
 	const [socket, setSocket] = useState(null);
 	const [onlineUsers, setOnlineUsers] = useState([]);
-	const { authUser,user } = useAuthContext();
+	const { authUser,user, url} = useAuthContext();
 
 	useEffect(() => {
 		if (authUser) {
-			const socket = io("http://localhost:4000", {
+			const socket = io(url, {
 				query: {
 					userId: user._id,
 				},
