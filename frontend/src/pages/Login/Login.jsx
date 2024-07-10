@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import React from 'react'
 import axios from 'axios'
+import { useAuthContext } from '../../context/AuthContext.jsx'
 import { Link ,useNavigate} from 'react-router-dom'
 
 export const Login = () => {
@@ -9,7 +10,7 @@ export const Login = () => {
     username:"",
     password:"",
   });
-  const url = "http://localhost:4000"
+  const {url} = useAuthContext();
   
   const onLogin = async(e) =>{
     e.preventDefault()
