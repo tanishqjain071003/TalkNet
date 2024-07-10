@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { extractTime } from "../../utils/extractTime";
 import useConversation from '../../zustand/useConversation.js'
+import { useAuthContext } from '../../context/AuthContext'
 
 const Message = ({message}) => {
 
   const { selectedConversation } = useConversation();
   const token = localStorage.getItem("token")
   const [user,setUser] = useState({})
-  const url = "http://localhost:4000";
+  const {url} = useAuthContext();
 	const getCurrentUser = async () =>{
 		const response = await axios({
 			method:"get",
