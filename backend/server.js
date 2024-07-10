@@ -30,10 +30,14 @@ app.use("/api/users",allUsersRoute)
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
 
-app.get('/',(req,res)=>{
-    console.log("Server running")
-    res.send("Server Running")
-})
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
+
+// app.get('/',(req,res)=>{
+//     console.log("Server running")
+//     res.send("Server Running")
+// })
 
 server.listen(PORT,()=>{
     console.log(`Port is running at http://localhost:${PORT}`)
