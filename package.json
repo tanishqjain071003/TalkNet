@@ -154,7 +154,9 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "server": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "start":"node backend/server.js",
+    "build":"npm install"
   },
   "type": "module",
   "keywords": [],
