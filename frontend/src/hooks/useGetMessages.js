@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useConversation from "../zustand/useConversation";
 import axios from "axios";
-import { useAuthContext } from '../../context/AuthContext.jsx'
+import { useAuthContext } from '../context/AuthContext.jsx'
 
 const useGetMessages = () => {
 	const [loading, setLoading] = useState(false);
