@@ -11,7 +11,7 @@ export const AuthContextProvider = ({ children }) => {
 	const [authUser, setAuthUser] = useState(localStorage.getItem("token") || null);
 	const [user, setUser] = useState({});
 	const token = localStorage.getItem("token")
-	const url = "http://localhost:4000";
+	const url = "https://talknetbackend.onrender.com";
 	
 	const getCurrentUser = async () =>{
 		const response = await axios({
@@ -27,5 +27,5 @@ export const AuthContextProvider = ({ children }) => {
 		getCurrentUser()
 	},[token])
 
-	return <AuthContext.Provider value={{ authUser, setAuthUser,user}}>{children}</AuthContext.Provider>;
+	return <AuthContext.Provider value={{ authUser, setAuthUser,user ,url}}>{children}</AuthContext.Provider>;
 };
