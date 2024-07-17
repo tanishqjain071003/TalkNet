@@ -12,6 +12,7 @@ const signUp = async(req,res)=>{
     try{
 
         const {fullName, username, password, confirmPassword,gender} = req.body;
+        let image_filename = `${req.file.filename}`
 
         if(password !== confirmPassword){
             return res.json({success:false, message:"Passwords do not match"})
@@ -25,15 +26,12 @@ const signUp = async(req,res)=>{
         const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
 
-        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
-        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
-
         const newUser = new userModel({
             fullName,
             username,
             password:hashedPassword,
             gender,
-            profilePicture : gender === "Male" ? boyProfilePic : girlProfilePic
+            image:image_filename 
         })
 
         if(newUser){
