@@ -5,7 +5,7 @@ import multer from 'multer'
 const userRoute = express.Router()
 
 const storage = multer.diskStorage({
-    destination: '../../uploads',
+    destination: 'uploads',
     filename: (req, file, cb) => {
         return cb(null,`${Date.now()}${file.originalname}`);
     }
