@@ -1,7 +1,5 @@
 import React, { useEffect ,useState,useRef} from 'react'
 import Message from './Message'
-import axios from 'axios'
-import useConversation from '../../zustand/useConversation.js'
 import MessageSkeleton from '../../skeleton/MessageSkeleton.jsx'
 import useGetMessages from '../../hooks/useGetMessages.js'
 import useListenMessages from '../../hooks/useListenMessage.js'
