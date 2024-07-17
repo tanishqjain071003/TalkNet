@@ -34,7 +34,24 @@ const MessageContainer = () => {
 }
 
 const NoChatSelected = () =>{
-	const {user} = useAuthContext();
+	const {url} = useAuthContext();
+	const [user, setUser] = useState({});
+	const token = localStorage.getItem("token")
+	
+	const getCurrentUser = async () =>{
+		const response = await axios({
+			method:"get",
+			url:url+'/api/user/thisUser',
+			headers:{token},
+			})
+		if(response.data.success){
+			setUser(response.data.user.id)
+		}
+	}
+	useEffect(()=>{
+		getCurrentUser()
+	},[token])
+	
 	return (
 		<div className='flex items-center justify-center w-full h-full'>
 			<div className='px-4 text-center sm:text-lg md:text-xl text-gray-200 font-semibold flex flex-col items-center gap-2'>
