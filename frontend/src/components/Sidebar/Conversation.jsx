@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSocketContext } from "../../context/SocketContext";
 import useConversation from '../../zustand/useConversation.js'
+import { useAuthContext } from '../../context/AuthContext.jsx';
 
 const Conversation = ({lastIndex,item}) => {
 
@@ -8,13 +9,15 @@ const Conversation = ({lastIndex,item}) => {
   const isSelectedConversation = selectedConversation?._id ===  item._id;
   const {onlineUsers} = useSocketContext();
   const isOnline = onlineUsers.includes(item._id);
+  const {url} = useAuthContext();
+  const image = item.image
   
   return (
     <>
     <div onClick = {()=> setSelectedConversation(item)}className={`flex gap-2 items-center hover:bg-sky-500 p-2 py-1 cursor-pointer ${isSelectedConversation?"bg-sky-500":""}`}>
         <div className={`avatar ${isOnline ? "online":""}`}>
  			    <div className='w-12 rounded-full'>
- 						<img src={item.profilePic === "" ?'https://cdn0.iconfinder.com/data/icons/communication-line-10/24/account_profile_user_contact_person_avatar_placeholder-512.png':item.profilePic} alt='user avatar'/>
+ 						<img src={url+'/images/'+image} alt='user'/>
  					</div>
  			</div>
             <div className='flex flex-col justify-between'>
