@@ -33,8 +33,6 @@ const Conversations = () => {
 		conversations.map((item,index)=>{
 			return <Conversation key = {index} item = {item} lastIndex={index === conversations.length - 1? false:true}/> 
 		  })}
-      
-  
     </div>
   )
 }
