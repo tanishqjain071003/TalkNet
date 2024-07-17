@@ -10,7 +10,7 @@ const LogoutButton = () => {
 
   }
   return (
-    <div className="flex justify-start">
+    <div className="mt-2 flex justify-start">
       <button onClick = {logout} className='btn w-20 p-2 mt-auto'>Logout</button>
     </div>
   )
