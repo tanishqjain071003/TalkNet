@@ -10,7 +10,8 @@ const Conversation = ({lastIndex,item}) => {
   const {onlineUsers} = useSocketContext();
   const isOnline = onlineUsers.includes(item._id);
   const {url} = useAuthContext();
-  const image = item.image
+  const image = item.image;
+  console.log(image);
   
   return (
     <>
