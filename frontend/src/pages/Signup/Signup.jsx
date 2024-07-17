@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import { useAuthContext } from '../../context/AuthContext.jsx'
+import toast from 'react-hot-toast'
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../context/AuthContext'
+import upload_img from "/Users/tanishqjain/Desktop/TalkNet/frontend/src/assets/upload_area.png"
 
 const Signup = () => {
-    const {url} = useAuthContext();
+  const {url} = useAuthContext();
   const navigate = useNavigate();
+  const [image, setImage] = useState(false);
 
   const [inputs, setInputs] = useState({
     fullName:"",
@@ -21,14 +24,23 @@ const handleCheckboxChange = (gender) => {
 
 const onSignup = async(e)=>{
   e.preventDefault();
-
-  let response = await axios.post(url + "/api/user/signup",inputs);
+  const formData = new FormData();
+  formData.append("fullName", inputs.fullName);
+  formData.append("username", inputs.username);
+  formData.append("password", inputs.password);
+  formData.append("confirmPassword", inputs.confirmPassword);
+  formData.append("gender", inputs.gender);
+  formData.append("image", image);
+  console.log(formData);
+  
+  let response = await axios.post(url + "/api/user/signup",formData);
   if(response.data.success){
-    localStorage.setItem("token", response.data.token)    
+    localStorage.setItem("token", response.data.token)  
+    setImage(false);  
     navigate('/')      
   }
   else{
-    alert(response.data.message)
+    toast.error(response.data.message)
   }
 }
 
@@ -85,6 +97,13 @@ const onSignup = async(e)=>{
               </label>
             </div>
           </div>
+          <div className='w-24 mb-2'>
+                    <p className='label-text'>Upload image</p>
+                    <label htmlFor="image">
+                        <img src={!image ? upload_img: URL.createObjectURL(image)} alt="" />
+                    </label>
+                    <input onChange={(e) => { setImage(e.target.files[0]) }} type="file" name = 'image' id = 'image' hidden required />
+            </div>
 
 
 					<Link to ='/login' className='text-sm hover:underline hover:text-blue-600 mt-2 inline-block' href='#'>
