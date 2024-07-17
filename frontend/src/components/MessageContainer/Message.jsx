@@ -1,33 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { extractTime } from "../../utils/extractTime";
 import useConversation from '../../zustand/useConversation.js'
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '../../context/AuthContext.jsx';
 
 const Message = ({message}) => {
 
-  const { selectedConversation } = useConversation();
-  const token = localStorage.getItem("token")
-  const [user,setUser] = useState({})
-  const {url} = useAuthContext();
-	const getCurrentUser = async () =>{
-		const response = await axios({
-			method:"get",
-			url:url+'/api/user/thisUser',
-			headers:{token},
-			})
-		if(response.data.success){
-			setUser(response.data.user.id)
-		}
-	}
-	useEffect(()=>{
-		getCurrentUser()
-	},[])
+	const { selectedConversation } = useConversation();
+	const {url,user} = useAuthContext();
 
-  const fromMe = message.senderId === user._id;
-  const formattedTime = extractTime(message.createdAt);
+	const fromMe = message.senderId === user._id;
+	const formattedTime = extractTime(message.createdAt);
 	const chatClassName = fromMe ? "chat-end" : "chat-start";
-	const profilePic = "https://cdn0.iconfinder.com/data/icons/communication-line-10/24/account_profile_user_contact_person_avatar_placeholder-512.png";
+	const profilePic = chatClassName === "chat-end" ? user.image : selectedConversation.image;
+	console.log(profilePic);
 	const bubbleBgColor = fromMe ? "bg-blue-500" : "";
 
   const shakeClass = message.shouldShake ? "shake" : "";
@@ -36,7 +21,7 @@ const Message = ({message}) => {
       <div className={`chat ${chatClassName}`}>
 			<div className='chat-image avatar'>
 				<div className='w-10 rounded-full'>
-					<img alt='Tailwind CSS chat bubble component' src={profilePic} />
+					<img alt='Tailwind CSS chat bubble component' src={url+'/images/'+profilePic} />
 				</div>
 			</div>
 			<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}>{message.message}</div>
