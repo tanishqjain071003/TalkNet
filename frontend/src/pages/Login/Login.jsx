@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import React from 'react'
 import axios from 'axios'
-import { useAuthContext } from '../../context/AuthContext.jsx'
+import toast from 'react-hot-toast'
 import { Link ,useNavigate} from 'react-router-dom'
+import { useAuthContext } from '../../context/AuthContext'
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export const Login = () => {
       navigate('/')    
     }
     else{
-      alert(response.data.message)
+      toast.error(response.data.message)
     }
   }
   return (
