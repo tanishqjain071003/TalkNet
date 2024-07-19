@@ -18,7 +18,7 @@ const Conversation = ({lastIndex,item}) => {
     <div onClick = {()=> setSelectedConversation(item)}className={`flex gap-2 items-center hover:bg-sky-500 p-2 py-1 cursor-pointer ${isSelectedConversation?"bg-sky-500":""}`}>
         <div className={`avatar ${isOnline ? "online":""}`}>
  			    <div className='w-12 rounded-full'>
- 						<img src={url+'/images/'+image} alt='user'/>
+ 						<img src={url+'/images/'+image} alt={item.fullName}/>
  					</div>
  			</div>
             <div className='flex flex-col justify-between'>
