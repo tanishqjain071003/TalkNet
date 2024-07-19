@@ -69,19 +69,19 @@ const getMessages = async(req,res)=>{
     }
 }
 
-const deleteMessage = async(req,res)=>{
+const unsendMessage = async(req,res)=>{
 
     try {
         const {_id} = req.params;
 
         await MessageModel.findByIdAndDelete(_id);
 
-        res.json({success:true,message:"Message deleted"});
+        res.json({success:true,message:"Message unsent"});
         
     } catch (error) {
         console.log(error);
-        res.json({success:false, message:"Error in delete message"})
+        res.json({success:false, message:"Error in unsend message"})
     }
 }
 
-export {sendMessage,getMessages, deleteMessage}
+export {sendMessage,getMessages, unsendMessage}
