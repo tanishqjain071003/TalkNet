@@ -26,7 +26,7 @@ const Profile = () => {
     <div className='flex justify-start items-end'>
         <div className='flex gap-2 items-center p-2 py-1 cursor-pointer'>
           <div className='w-12 rounded-full'>
-              <img className='rounded-full'src={url+'/images/'+image} alt='user'/>
+              <img className='rounded-full'src={url+'/images/'+image} alt={user.fullName}/>
           </div>
         <p className='ml-2 text-gray-200 font-semibold'>Hello, {user.fullName}</p>
         </div>
