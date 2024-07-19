@@ -11,6 +11,7 @@ const Message = ({message}) => {
 	const { selectedConversation } = useConversation();
 	const {url,user} = useAuthContext();
 	const token = localStorage.getItem("token")
+	const [show, setShow] = useState(true);
 
 	const handleOnClick = async(e) =>{
 		try {
@@ -22,6 +23,7 @@ const Message = ({message}) => {
 			console.log(response.data.success);
 			if(response.data.success){
 				toast.success(response.data.message);
+				setShow(false);
 			}
 			else{
 				toast.error(response.message);
@@ -41,16 +43,16 @@ const Message = ({message}) => {
   const shakeClass = message.shouldShake ? "shake" : "";
   return (
     <>
-      <div className={`chat ${chatClassName}`}>
+      {show && <div className={`chat ${chatClassName}`}>
 			<div className='chat-image avatar'>
 				<div className='w-10 rounded-full'>
 					<img alt={name} src={url+'/images/'+profilePic} />
 				</div>
 			</div>
 			<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}>{message.message}</div>
-	      		{fromMe ? <TiDeleteOutline onClick={handleOnClick}/> : <></>}
+			{fromMe ? <TiDeleteOutline onClick={handleOnClick} />:<></>}
 			<div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>{formattedTime}</div>
-		</div>
+		</div>}
  </>
   )
 }
