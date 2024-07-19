@@ -1,4 +1,4 @@
-import {getMessages ,deleteMessage,unsendMessage} from "../controllers/messageController.js";
+import {getMessages ,sendMessage,unsendMessage} from "../controllers/messageController.js";
 import express from "express"
 import protectRoute from "../middleware/protectRoute.js";
 
