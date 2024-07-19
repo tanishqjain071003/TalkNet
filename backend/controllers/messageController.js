@@ -1,5 +1,6 @@
 import ConversationModel from "../models/conversationModel.js";
 import MessageModel from "../models/messageModel.js";
+import userModel from "../models/userModel.js";
 import { io } from "../socket/socket.js";
 import {getReceiverSocketId} from '../socket/socket.js'
 
@@ -14,6 +15,7 @@ const sendMessage = async (req,res)=>{
         let conversation = await ConversationModel.findOne({
             participants : {$all:[senderId,receiverId]}
         })
+
 
         if(!conversation){
             conversation = await ConversationModel.create({
@@ -67,4 +69,19 @@ const getMessages = async(req,res)=>{
     }
 }
 
-export {sendMessage,getMessages}
+const deleteMessage = async(req,res)=>{
+
+    try {
+        const {_id} = req.params;
+
+        await MessageModel.findByIdAndDelete(_id);
+
+        res.json({success:true,message:"Message deleted"});
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message:"Error in delete message"})
+    }
+}
+
+export {sendMessage,getMessages, deleteMessage}
