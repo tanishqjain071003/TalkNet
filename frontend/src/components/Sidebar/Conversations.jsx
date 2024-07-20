@@ -4,7 +4,7 @@ import Conversation from './Conversation.jsx'
 import useGetConversations from '../../hooks/useGetConversations.js'
 
 const Conversations = () => {
-  	const [users,setUsers] = useState([]);
+
 	// const url = "http://localhost:4000";
 	// const token = localStorage.getItem("token");
 
@@ -28,9 +28,8 @@ const Conversations = () => {
 	// },[token])
 	
   return (
-    <div className='flex flex-col py-2 overflow-auto'>
-		{(loading)? (<div className='loading loading-spinner'></div>):
-		conversations.map((item,index)=>{
+    <div className='flex flex-col py-2 overflow-scroll'>
+		{conversations.map((item,index)=>{
 			return <Conversation key = {index} item = {item} lastIndex={index === conversations.length - 1? false:true}/> 
 		  })}
     </div>
