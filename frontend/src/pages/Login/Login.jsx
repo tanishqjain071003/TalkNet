@@ -25,37 +25,43 @@ export const Login = () => {
     }
   }
   return (
-    <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-      <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
-        <h1 className='text-3xl font-semibold text-center text-gray-300'>
-          Login
-          <span className='text-blue-500'> TalkNet</span>
-        </h1>
+    <div className='flex items-center justify-center rounded-lg bg-gradient-to-r from-emerald-900 to-cyan-700 mt-52 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>
+      <div className='flex flex-col items-center justify-center min-w-96 h-full mt-auto mx-auto'>
+        <div className='w-full flex flex-col p-6 items-center justify-center'>
+          <h1 className='text-stone-900 text-3xl text-bold font-extrabold text-center'>
+            Login
+            <span className='text-green-400'> TalkNet</span>
+          </h1>
 
-        <form onSubmit={onLogin}>
-          <div>
-            <label className='label p-2'>
-              <span className="text-base label-text">Username</span>
-            </label>
-            <input type="text" value = {data.username}  onChange = {(e) => setData({...data,username:e.target.value})} placeholder='Enter username' className='w-full input input-bordered h-10'/>
-          </div>
-          <div>
-            <label className='label p-2'>
-              <span className="text-base label-text">Password</span>
-            </label>
-            <input type="password" value = {data.password} onChange = {(e) => setData({...data,password:e.target.value})} placeholder='Enter password' className='w-full input input-bordered h-10'/>
-          </div>
-          <Link to= "/signup" className='text-sm  hover:underline hover:text-blue-600 mt-2 inline-block'>
-						{"Don't"} have an account?
-					</Link>
-          <div>
-            <button className='btn btn-block btn-sm mt-2'>Login</button>
-          </div>
-        </form>
-
-
+          <form onSubmit={onLogin}>
+            <div className='w-80'>
+              <label className='label p-2'>
+                <span className="text-base text-slate-950 font-semibold label-text">Username</span>
+              </label>
+              <input type="text" className='input input-bordered input-info w-full max-w-xs' value = {data.username}  onChange = {(e) => setData({...data,username:e.target.value})} placeholder='Enter username'/>
+            </div>
+            <div>
+              <label className='label p-2'>
+                <span className="text-base text-slate-950 font-semibold label-text">Password</span>
+              </label>
+              <input type="password"  className='input input-bordered input-info w-full max-w-xs' value = {data.password} onChange = {(e) => setData({...data,password:e.target.value})} placeholder='Enter password'/>
+            </div>
+            <div>
+            <button className="btn btn-active btn-accent w-52 mt-4 rounded-3xl text-base">Log In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div className='flex flex-col items-center  justify-start mr-8 gap-4'>
+        <p className = 'text-green-400 text-3xl text-bold font-extrabold'>New Here?</p>
+        <p className='text-xs text-slate-950 w-44'>Sign up to connect with people all over the world!</p>
+        <Link to= "/signup" className=''>
+          <button className="btn btn-active btn-accent w-48 rounded-3xl text-base">Sign In</button>
+        </Link>
       </div>
     </div>
+    
 
   )
 }
