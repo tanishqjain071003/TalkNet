@@ -39,8 +39,9 @@ const Message = ({message}) => {
 	const profilePic = chatClassName === "chat-end" ? user.image : selectedConversation.image;
 	const bubbleBgColor = fromMe ? "bg-blue-500" : "";
 	const name = fromMe ? user.fullName:selectedConversation.fullName;
+	const shakeClass = message.shouldShake ? "shake" : "";
+	
 
-  const shakeClass = message.shouldShake ? "shake" : "";
   return (
     <>
       {show && <div className={`chat ${chatClassName}`}>
