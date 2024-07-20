@@ -10,8 +10,8 @@ const LogoutButton = () => {
 
   }
   return (
-    <div className="mt-2 flex justify-start">
-      <button onClick={logout}className="btn w-16 h-8 p-2 mt-auto btn-outline btn-error">Logout</button>
+    <div className="flex justify-start">
+      <button onClick={logout}className="btn w-16 text-xs h-2 mt-auto btn-outline btn-error">Logout</button>
     </div>
   )
 }
