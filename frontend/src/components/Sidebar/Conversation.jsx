@@ -10,14 +10,13 @@ const Conversation = ({lastIndex,item}) => {
   const {onlineUsers} = useSocketContext();
   const isOnline = onlineUsers.includes(item._id);
   const {url} = useAuthContext();
-  const image = item.image;
-  console.log(image);
+  const image = item.image
   
   return (
     <>
-    <div onClick = {()=> setSelectedConversation(item)}className={`flex gap-2 items-center hover:bg-sky-500 p-2 py-1 cursor-pointer ${isSelectedConversation?"bg-sky-500":""}`}>
+    <div onClick = {()=> setSelectedConversation(item)}className={`flex h-16 gap-2 items-center hover:bg-teal-400 p-2 py-1 cursor-pointer ${isSelectedConversation?"bg-teal-500":""}`}>
         <div className={`avatar ${isOnline ? "online":""}`}>
- 			    <div className='w-12 rounded-full'>
+ 			    <div className='w-12 rounded-full '>
  						<img src={url+'/images/'+image} alt={item.fullName}/>
  					</div>
  			</div>
