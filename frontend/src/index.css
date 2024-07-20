@@ -2,28 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/bg3.jpeg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-}
 
+* {
+	font-family: "Nunito Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: <weight>;
+	font-style: normal;
+	font-variation-settings:
+	  "wdth" 100,
+	  "YTLC" 500;
+  }
 
-/* dark mode looking scrollbar */
-::-webkit-scrollbar {
-	width: 8px;
-}
-
-::-webkit-scrollbar-track {
-	background: #555;
-}
-
-::-webkit-scrollbar-thumb {
-	background: #121212;
-	border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: #242424;
+html, body, #root {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
