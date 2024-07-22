@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { IoMdAddCircleOutline } from "react-icons/io";
 import { useAuthContext } from '../../context/AuthContext.jsx'
-const Person = ({lastIndex,item}) => {
 
+const Person = ({lastIndex,item}) => {
+  
   const token = localStorage.getItem("token")
   const {url} = useAuthContext();
   const image = item.image;
@@ -25,19 +27,22 @@ const Person = ({lastIndex,item}) => {
   
   return (
     <>
-    <div onClick = {handleClick}className={`flex h-16 gap-2 items-center hover:bg-teal-400 p-2 py-1 cursor-pointer`}>
+    <div className={`flex rounded-full p-2 h-24 gap-2 items-center bg-gradient-to-r from-green-800 to-cyan-600 py-1 cursor-pointer duration-200 hover:drop-shadow-lg`}>
         <div className={`avatar`}>
- 			    <div className='w-12 rounded-full '>
+ 			    <div className='w-20 rounded-full '>
  						<img src={url+'/images/'+image} alt={item.fullName}/>
  					</div>
- 			</div>
+ 			  </div>
             <div className='flex flex-col justify-between'>
-                    <p className='font-bold text-gray-200 '>{item.fullName}</p>
+                    <p className='text-2xl ml-2 text-gray-100 '>Name: <span className='font-bold text-gray-200'>{item.fullName}</span></p>
+                    <p className='text-sm ml-2 text-gray-100 '>Username: <span className='font-bold text-gray-200'>{item.username}</span></p>
+                    
             </div>
+        <IoMdAddCircleOutline onClick = {handleClick}className= 'text-2xl hover:scale-150 duration-300 ml-auto mr-4'/>
         </div>
       <div>
     </div>
-    {!lastIndex ? <></>:<hr className="h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />}
+    {!lastIndex ? <></>:<hr className="h-0.5 mb-1 border-t-0 bg-neutral-100 dark:bg-white/10" />}
     </>
         
   )
