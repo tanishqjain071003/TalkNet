@@ -14,7 +14,9 @@ const SearchResults = () => {
 	// 	}	  
 	// },[token])
 	if(loading){
-		return <span className="loading loading-spinner loading-md"></span>
+		return <div className='mt-4 flex items-center justify-center'>
+			<span className="loading loading-spinner loading-md"></span>
+		</div> 
 	}
   return (
     <div className='flex flex-col py-2 overflow-scroll'>
