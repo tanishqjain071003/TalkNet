@@ -19,7 +19,7 @@ const SearchResults = () => {
 		</div> 
 	}
   return (
-    <div className='flex flex-col py-2 overflow-scroll'>
+    <div className='flex flex-col py-2 overflow-scroll gap-1'>
 		{conversations.map((item,index)=>{
 			return <Person key = {index} item = {item} lastIndex={index === conversations.length - 1? false:true}/> 
 		  })}
