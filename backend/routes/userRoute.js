@@ -1,4 +1,4 @@
-import { signUp , logIn,currentUser} from "../controllers/userController.js";
+import { signUp, logIn, currentUser, addToFriend} from "../controllers/userController.js";
 import express from "express"
 import multer from 'multer'
 
@@ -16,5 +16,6 @@ const upload = multer({ storage: storage})
 userRoute.post('/signup',upload.single('image'),signUp);
 userRoute.post('/login',logIn);
 userRoute.get('/thisUser',currentUser);
+userRoute.get('/addToFriend/:id',protectRoute,addToFriend);
 
 export default userRoute
