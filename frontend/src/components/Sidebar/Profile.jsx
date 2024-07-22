@@ -2,7 +2,8 @@ import {React,useState,useEffect} from 'react'
 import axios from 'axios'
 import { useAuthContext } from '../../context/AuthContext';
 import LogoutButton from './LogoutButton';
-import ProfileContainer from '../MessageContainer/ProfileContainer';
+import { NavLink } from 'react-router-dom'
+
 
 const Profile = () => {
   const {url} = useAuthContext();
@@ -34,8 +35,9 @@ const Profile = () => {
           </div>
         <p className='ml-1 text-gray-200 font-semibold'>Hello, {user.fullName}</p>
         </div>
-		<div>
+		<div className='flex gap-2'>
 			<LogoutButton />
+			<NavLink to = '/users'><button className="btn btn-outline btn-info">Add Friends</button></NavLink>
 		</div>
    	 </div>
   )
