@@ -59,7 +59,7 @@ const logIn = async (req,res) =>{
 
         const user = await userModel.findOne({username});
 
-        if(!user) return res.json({success:false,message:"User does not exist"})
+        if(!user) return res.json({success:false,message:"User does not exists"})
         
         const passwordCorrect = await bcrypt.compare(password,user.password)
 
@@ -89,7 +89,29 @@ const currentUser = async(req,res)=>{
         console.log(error);
         res.json({success:false, message:"Error"})
     }
-
 }
 
-export {signUp, logIn,currentUser}
+const addToFriend = async(req,res) =>{
+
+    try {
+        const currentUserId = req.user._id;
+        const friendToAddId = req.params.id;
+        const user = await userModel.findOne({_id:currentUserId});
+
+        for(let i = 0; i<user.friends.length; i++){
+            if(user.friends[i]._id.toString() === friendToAddId)return res.json({success:true,message:"Friend added already"});
+        }
+        const friendToAdd = await userModel.findOne({_id:friendToAddId});
+        await user.friends.push(friendToAdd);
+        
+        await userModel.findByIdAndUpdate({_id:currentUserId}, {friends:user.friends});
+
+        
+        res.json({success:true,message:"Friend Added"})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:error.message})
+    }
+}
+
+export {signUp, logIn, currentUser, addToFriend}
