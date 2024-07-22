@@ -27,7 +27,7 @@ const Person = ({lastIndex,item}) => {
   
   return (
     <>
-    <div className={`flex rounded-full p-2 h-24 gap-2 items-center bg-gradient-to-r from-green-800 to-cyan-600 py-1 cursor-pointer duration-200 hover:drop-shadow-lg`}>
+    <div className={`flex rounded-full p-2 h-24 gap-2 items-center hover:bg-teal-800 py-1 cursor-pointer duration-200 hover:drop-shadow-lg`}>
         <div className={`avatar`}>
  			    <div className='w-20 rounded-full '>
  						<img src={url+'/images/'+image} alt={item.fullName}/>
