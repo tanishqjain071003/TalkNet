@@ -1,6 +1,7 @@
 import { signUp, logIn, currentUser, addToFriend} from "../controllers/userController.js";
 import express from "express"
 import multer from 'multer'
+import protectRoute from "../middleware/protectRoute.js";
 
 const userRoute = express.Router()
 
