@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 const useGetFriends = () => {
 	const [loading, setLoading] = useState(false);
 	const [friends, setFriends] = useState([]);
-    const url = 'http://localhost:4000';
+    const {url} = useAuthContext();
     const token = localStorage.getItem("token")
 	useEffect(() => {
         
