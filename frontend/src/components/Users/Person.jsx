@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { useAuthContext } from '../context/AuthContext.jsx'
 const Person = ({lastIndex,item}) => {
 
   const token = localStorage.getItem("token")
-  const url = "http://localhost:4000"
+  const {url} = useAuthContext();
   const image = item.image;
 
   const handleClick = async (e) => {
