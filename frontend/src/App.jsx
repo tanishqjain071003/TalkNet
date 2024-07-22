@@ -2,6 +2,7 @@ import Login from "./pages/Login/Login.jsx"
 import './App.css'
 import Signup from './pages/Signup/Signup.jsx'
 import Home from './pages/Home/Home.jsx'
+import SearchBox from "./components/Users/SearchBox.jsx"
 import {Route,Routes} from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 
