@@ -24,7 +24,12 @@ const userSchema = new mongoose.Schema({
     image:{
         type:String,
         default:""
-    }
+    },
+    friends:[{
+        type: mongoose.Schema.Types.Object,
+		ref: "User",
+        default:[]
+    }]
 })
 
 const userModel = mongoose.model.User || mongoose.model("User",userSchema)
