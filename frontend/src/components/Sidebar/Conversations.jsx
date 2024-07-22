@@ -21,7 +21,7 @@ const Conversations = () => {
 		{friends.map((item,index)=>{
 			return <Conversation key = {index} item = {item} lastIndex={index === friends.length - 1? false:true}/> 
 		})}
-		{!length && <p className='text-xl text-slate-300'>Add friends to start talking</p>}
+		{!length && <p className='text-xl text-center text-slate-300'>Add friends to start talking</p>}
     </div>
   )
 }
