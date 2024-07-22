@@ -20,8 +20,6 @@ const getFriends = async (req,res)=>{
 
         if(user){
             let friends = user.friends;
-            console.log(user.friends);
-    
             res.json({success:true, friends});
         }
         else{
