@@ -4,7 +4,7 @@ import axios from 'axios'
 import { IoSearchSharp } from "react-icons/io5";
 import useConversations from '../../hooks/useGetConversations'
 import useGetConversations from '../../hooks/useGetConversations';
-import { useAuthContext } from '../context/AuthContext.jsx'
+import { useAuthContext } from '../../context/AuthContext.jsx'
 
 const SearchInput = () => {
 
