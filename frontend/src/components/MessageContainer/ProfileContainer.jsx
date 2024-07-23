@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useAuthContext } from '../../context/AuthContext';
+import RemoveFriend from './RemoveFriend';
 
 const ProfileContainer = ({selectedConversation,setShowProfile}) => {
     const {url} = useAuthContext();
@@ -21,6 +22,7 @@ const ProfileContainer = ({selectedConversation,setShowProfile}) => {
         <div className=''>
             <p className='text-start p-3 h-16 mx-6 rounded-3xl border-green-500 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Gender : {selectedConversation.gender}</p>
         </div>
+        <RemoveFriend selectedConversation={selectedConversation} />
     </div>
     <div onClick = {(item)=>{setShowProfile(!item)}}className='font-bold cursor-pointer mt-auto ml-4 mb-6' >
         <IoMdArrowRoundBack />
