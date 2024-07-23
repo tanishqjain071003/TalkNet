@@ -113,5 +113,29 @@ const addToFriend = async(req,res) =>{
         res.json({success:false,message:error.message})
     }
 }
+const removeFriend = async(req,res) =>{
 
-export {signUp, logIn, currentUser, addToFriend}
+    try {
+        const currentUserId = req.user._id;
+        const friendToAddId = req.params.id;
+        const user = await userModel.findOne({_id:currentUserId});
+
+        let len = user.friends.length;
+        for(let i = 0; i<len; i++){
+            if(user.friends[i]._id.toString() === friendToAddId){
+                console.log(user.friends);
+                user.friends.splice(i,1);
+                console.log(user.friends);
+                await userModel.findByIdAndUpdate({_id:currentUserId}, {friends:user.friends});
+                return res.json({success:true,message:"Friend removed from the list"});
+            }
+        }
+        return res.json({success:false,message:"Friend removed from the list"});        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:error.message})
+    }
+}
+
+
+export {signUp, logIn, currentUser, addToFriend,removeFriend}
