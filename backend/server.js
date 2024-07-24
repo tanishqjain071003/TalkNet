@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import path from "path"
 import cors from "cors"
 import connectDB from './config/db.js'
-import userRouter from './routes/userRoute.js'
+import userRoute from './routes/userRoute.js'
 import messageRoute from "./routes/messageRoute.js"
 import allUsersRoute from "./routes/allUsersRoute.js"
 
