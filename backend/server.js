@@ -23,13 +23,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors())
 
-app.use("/images", express.static('uploads'));
+app.use("/images", express.static(path.join(__dirname, "uploads")));
 app.use("/api/user",userRoute)
 app.use("/api/message",messageRoute)
 app.use("/api/users",allUsersRoute)
-
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
 
 // app.get("*", (req, res) => {
 // 	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
