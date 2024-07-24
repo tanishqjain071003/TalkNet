@@ -2,15 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 *{
-font-family: "Nunito Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: <weight>;
-font-style: normal;
-font-variation-settings:
-  "wdth" 100,
-  "YTLC" 500;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 html, body, #root {
