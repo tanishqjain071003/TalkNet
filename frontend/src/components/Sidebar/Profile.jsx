@@ -31,7 +31,7 @@ const Profile = () => {
 		<div className='flex justify-start items-end'>
         <div onClick={()=>{setShowProfile(!showProfile)}} className='flex gap-2 items-center p-2 py-1 cursor-pointer'>
           <div className='w-12 rounded-full'>
-              <img className='rounded-full'src={url+'/images/'+image} alt='frontend/public/profilePic.png'/>
+              <img className='rounded-full'src={url+'/images/'+image} alt='user'/>
           </div>
         <p className='ml-1 text-gray-200 font-semibold'>Hello, {user.fullName}</p>
         </div>
