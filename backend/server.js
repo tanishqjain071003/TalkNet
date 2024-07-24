@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors())
 
-app.use("/images", express.static(path.join(__dirname, 'uploads')));
+app.use("/images", express.static(path.join('uploads'));
 app.use("/api/user",userRoute)
 app.use("/api/message",messageRoute)
 app.use("/api/users",allUsersRoute)
