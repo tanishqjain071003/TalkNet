@@ -15,7 +15,7 @@ const Person = ({lastIndex,item}) => {
 		e.preventDefault();
     const response = await axios({
       method:"get",
-      url:url+`/api/user/addToFriend/${item._id}`,
+      url:url+`/api/user/putToFriend/${item._id}`,
       headers:{token},
     })
     if(response.data.success){
