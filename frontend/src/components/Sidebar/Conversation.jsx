@@ -14,7 +14,7 @@ const Conversation = ({lastIndex,item}) => {
   
   return (
     <>
-    <div onClick = {()=> setSelectedConversation(item)}className={`flex h-20 gap-2 my-2 items-center hover:bg-teal-800 rounded-3xl p-2 py-1 cursor-pointer ${isSelectedConversation?"bg-gradient-to-r from-green-800 to-teal-900":""}`}>
+    <div onClick = {()=> setSelectedConversation(item)}className={`flex h-20 gap-2 my-2 items-center hover:bg-slate-800 rounded-3xl p-2 py-1 cursor-pointer ${isSelectedConversation?"bg-gradient-to-r from-gray-700 to-gray-800":""}`}>
         <div className={`avatar ${isOnline ? "online":""}`}>
  			    <div className='w-16 rounded-full '>
  						<img src={url+'/images/'+image} alt={item.fullName}/>
