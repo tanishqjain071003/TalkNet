@@ -37,7 +37,7 @@ const Profile = () => {
         </div>
 		<div className='flex gap-2'>
 			<LogoutButton />
-			<NavLink to = '/users'><button className="btn btn-outline btn-info">Add Friends</button></NavLink>
+			<NavLink to = '/users'><button className="btn btn-outline btn-info shadow-[0px_0px_11px_1px_#2b6cb0]">Add Friends</button></NavLink>
 		</div>
    	 </div>
   )
