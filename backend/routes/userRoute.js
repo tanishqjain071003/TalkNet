@@ -17,7 +17,7 @@ const upload = multer({ storage: storage})
 userRoute.post('/signup',upload.single('image'),signUp);
 userRoute.post('/login',logIn);
 userRoute.get('/thisUser',currentUser);
-userRoute.get('/addToFriend/:id',protectRoute,addToFriend);
+userRoute.get('/putToFriend/:id',protectRoute,addToFriend);
 userRoute.get('/removeFriend/:id',protectRoute,removeFriend);
 
 export default userRoute
