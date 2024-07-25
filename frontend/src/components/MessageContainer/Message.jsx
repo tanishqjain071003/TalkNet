@@ -5,6 +5,7 @@ import { useAuthContext } from '../../context/AuthContext.jsx';
 import axios from 'axios';
 import toast from 'react-hot-toast'
 import { TiDeleteOutline } from "react-icons/ti";
+import { FaCheck } from "react-icons/fa6";
 
 const Message = ({message}) => {
 
@@ -52,7 +53,10 @@ const Message = ({message}) => {
 			</div>
 			<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}>{message.message}</div>
 			{fromMe ? <TiDeleteOutline onClick={handleOnClick} />:<></>}
-			<div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>{formattedTime}</div>
+			<div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>
+				{formattedTime}
+				{fromMe?<FaCheck/>:<></>}
+			</div>
 		</div>}
  </>
   )
