@@ -25,39 +25,39 @@ export const Login = () => {
     }
   }
   return (
-    <div className='flex items-center justify-center rounded-lg bg-gradient-to-r from-emerald-900 to-cyan-700 mt-52 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>
+    <div className='flex items-center justify-center rounded-xl bg-gradient-to-r from-slate-900 to-slate-700 mt-52 shadow-[0px_0px_15px_5px_#4a5568]'>
       <div className='flex flex-col items-center justify-center min-w-96 h-full mt-auto mx-auto'>
         <div className='w-full flex flex-col p-6 items-center justify-center'>
-          <h1 className='text-stone-900 text-3xl text-bold font-extrabold text-center'>
+          <h1 className='text-slate-100 text-3xl font-medium text-center'>
             Login
-            <span className='text-green-400'> TalkNet</span>
+            <span className='bg-gradient-to-r from-slate-100 to-slate-400 bg-clip-text text-transparent'> TalkNet</span>
           </h1>
 
           <form onSubmit={onLogin}>
             <div className='w-80'>
               <label className='label p-2'>
-                <span className="text-base text-slate-950 font-semibold label-text">Username</span>
+                <span className="text-base text-slate-100 font-medium label-text">Username</span>
               </label>
-              <input type="text" className='input input-bordered input-info w-full max-w-xs' value = {data.username}  onChange = {(e) => setData({...data,username:e.target.value})} placeholder='Enter username'/>
+              <input type="text" className='input input-bordered w-full max-w-xs' value = {data.username}  onChange = {(e) => setData({...data,username:e.target.value})} placeholder='Enter username'/>
             </div>
             <div>
               <label className='label p-2'>
-                <span className="text-base text-slate-950 font-semibold label-text">Password</span>
+                <span className="text-base text-slate-100 font-medium label-text">Password</span>
               </label>
-              <input type="password"  className='input input-bordered input-info w-full max-w-xs' value = {data.password} onChange = {(e) => setData({...data,password:e.target.value})} placeholder='Enter password'/>
+              <input type="password"  className='input input-bordered w-full max-w-xs' value = {data.password} onChange = {(e) => setData({...data,password:e.target.value})} placeholder='Enter password'/>
             </div>
             <div>
-            <button className="btn btn-active btn-accent w-52 mt-4 rounded-3xl text-base">Log In</button>
+            <button className="btn btn-active btn-accent hover:bg-slate-700 hover:border-gray-600 text-slate-100 bg-gray-800 border-gray-400 w-52 mt-4 rounded-3xl text-base">Log In</button>
             </div>
           </form>
         </div>
       </div>
       
       <div className='flex flex-col items-center  justify-start mr-8 gap-4'>
-        <p className = 'text-green-400 text-3xl text-bold font-extrabold'>New Here?</p>
-        <p className='text-xs text-slate-950 w-44'>Sign up to connect with people all over the world!</p>
+        <p className = 'text-slate-100 text-3xl font-medium text-center'>New Here?</p>
+        <p className='text-xs text-slate-100 font-medium label-text w-44'>Sign up to connect with people all over the world!</p>
         <Link to= "/signup" className=''>
-          <button className="btn btn-active btn-accent w-48 rounded-3xl text-base">Sign In</button>
+          <button className="btn btn-active mt-2 btn-accent hover:bg-slate-700 hover:border-gray-600 text-slate-100 bg-gray-800 border-gray-400 w-48 rounded-3xl text-base">Sign Up</button>
         </Link>
       </div>
     </div>
