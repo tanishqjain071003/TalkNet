@@ -28,7 +28,7 @@ const MessageContainer = () => {
 				{!showProfile ? <>
 								<div onClick = {() => setShowProfile(!showProfile)} className='flex cursor-pointer rounded-[2rem] border-zinc-800 border-1 bg-gradient-to-r from-slate-900 to-slate-800 h-20 items-center px-4 py-2 mr-2 ml-2 mt-2'>
 									<hr />
-									<div className='w-10'>
+									<div className='w-14'>
 										<img className = "rounded-full" src={url+'/images/'+selectedConversation.image} alt={selectedConversation.fullName}/>	
 									</div>
 									<span className='my-1 mx-4 text-white font-bold'>{selectedConversation.fullName}</span>
