@@ -14,13 +14,13 @@ const ProfileContainer = ({selectedConversation,setShowProfile}) => {
     </div>
     <div className='flex flex-col justify-start mb-auto gap-6'>
         <div className=''>
-            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-green-500 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Name : {selectedConversation.fullName}</p>
+            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-x-stone-200 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Name : {selectedConversation.fullName}</p>
         </div>
         <div className=''>
-            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-green-500 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Username : {selectedConversation.username}</p>
+            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-x-stone-200 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Username : {selectedConversation.username}</p>
         </div>
         <div className=''>
-            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-green-500 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Gender : {selectedConversation.gender}</p>
+            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-x-stone-200 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Gender : {selectedConversation.gender}</p>
         </div>
         <RemoveFriend selectedConversation={selectedConversation} />
     </div>
