@@ -18,7 +18,7 @@ const Messages = () => {
 
 
   return (
-    <div className='px-4 flex-1 overflow-auto rounded-3xl  border-zinc-800 border-1 m-2 p-2'>
+    <div className='px-4 flex-1 overflow-auto rounded-3xl border-zinc-800 bg-gradient-to-r from-slate-900 to-slate-800 border-1 m-2 mb-1 p-2'>
       {!loading &&
 				messages.length > 0 &&
 				messages.map((message) => (
