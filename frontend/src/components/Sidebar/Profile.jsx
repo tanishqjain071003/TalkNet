@@ -30,12 +30,12 @@ const Profile = () => {
 
 		<div className='flex justify-start items-end'>
         <div onClick={()=>{setShowProfile(!showProfile)}} className='flex gap-2 items-center p-2 py-1 cursor-pointer'>
-          <div className='w-12 rounded-full'>
+          <div className='w-12 rounded-full max-[640px]:w-8'>
               <img className='rounded-full'src={url+'/images/'+image} alt='user'/>
           </div>
-        <p className='ml-1 text-gray-200 font-semibold'>Hello, {user.fullName}</p>
+        <p className='ml-1 text-gray-200 font-semibold  max-[640px]:text-xs'>Hello, {user.fullName}</p>
         </div>
-		<div className='flex gap-2'>
+		<div className='flex gap-2 max-[640px]:flex-col'>
 			<LogoutButton />
 			<NavLink to = '/users'><button className="btn btn-outline btn-info shadow-[0px_0px_11px_1px_#2b6cb0]">Add Friends</button></NavLink>
 		</div>
