@@ -15,7 +15,7 @@ const Home = () => {
   return (
     
     <>
-    <div className = "w-full h-full bg-gradient-to-r from-slate-900 to-slate-700 flex md:flex-row sm:h-[780px] md:h-[780px]">
+    <div className = "w-full h-full bg-gradient-to-r from-slate-900 to-slate-700 flex md:flex-row h-screen">
         <Sidebar />
 			  <MessageContainer />
     </div>
