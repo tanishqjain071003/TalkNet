@@ -4,14 +4,13 @@ import axios from 'axios'
 import { IoSearchSharp } from "react-icons/io5";
 import useConversations from '../../hooks/useGetConversations'
 import useGetConversations from '../../hooks/useGetConversations';
-import { useAuthContext } from '../../context/AuthContext.jsx'
 
 const SearchInput = () => {
 
 
   	const [search, setSearch] = useState("");
 	const {conversations} = useGetConversations();
-	const {url} = useAuthContext();
+	const url = 'http://localhost:4000';
 	const token = localStorage.getItem("token")
 
   const handleSubmit = async (e) => {
@@ -41,11 +40,11 @@ const SearchInput = () => {
 			<input
 				type='text'
 				placeholder='Search…'
-				className='input input-bordered rounded-full w-full'
+				className='input input-bordered h-14 mb-2 rounded-full w-full'
 				value={search}
 				onChange={(e) => setSearch(e.target.value)}
 			/>
-			<button type='submit' className='btn btn-circle bg-teal-500 text-white'>
+			<button type='submit' className='btn btn-circle bg-blue-900  text-white'>
 				<IoSearchSharp className='w-6 h-6 outline-none' />
 			</button>
 	</form>
