@@ -24,7 +24,7 @@ const RemoveFriend = ({selectedConversation}) => {
     };
   return (
     <div className="mx-8 flex justify-start">
-    <button onClick = {removeFriend} className="btn text-sm h-2 mt-auto btn-outline btn-error">Remove from friend list</button>
+    <button onClick = {removeFriend} className="btn text-sm h-2 mt-auto btn-outline btn-error shadow-[0px_0px_11px_1px_#2b6cb0]">Remove from friend list</button>
   </div>
   )
 }
