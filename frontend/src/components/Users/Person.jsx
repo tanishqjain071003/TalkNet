@@ -35,7 +35,7 @@ const Person = ({lastIndex,item}) => {
  					</div>
  			  </div>
             <div className='flex flex-col justify-between'>
-                    <p className='text-2xl ml-2 text-gray-100 '>Name: <span className='font-bold text-gray-200'>{item.fullName}</span></p>
+                    <p className='text-2xl ml-2 text-gray-100 max-[620px]:text-base'>Name: <span className='font-bold text-gray-200'>{item.fullName}</span></p>
                     <p className='text-sm ml-2 text-gray-100 '>Username: <span className='font-bold text-gray-200'>{item.username}</span></p>
                     
             </div>
