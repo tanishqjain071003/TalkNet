@@ -5,7 +5,7 @@
 <table>
 <tr>
 <td>
-  TalkNet is a live real-time web chatting application with 
+  TalkNet is a live real-time web chatting application with user authentication, where you can add your friends to chat and connect seamlessly.
 </td>
 </tr>
 </table>
@@ -18,7 +18,6 @@ Here is a working live demo :  https://talknetfrontend.onrender.com/
 ## Site
 
 ### Landing Page
-Currently it is working on all NSE (India) Stocks, BSE (India) Stocks Symbol will be added soon.
 
 <img width="1440" alt="Screenshot 2024-07-26 at 8 57 03 PM" src="https://github.com/user-attachments/assets/a88e1794-162b-4bfb-b843-e91963cb20ff">
 /demo/web_app_face.JPG)
