@@ -1,17 +1,42 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSocketContext } from "../../context/SocketContext";
 import useConversation from '../../zustand/useConversation.js'
 import { useAuthContext } from '../../context/AuthContext.jsx';
+import toast from 'react-hot-toast'
+import axios from 'axios'
+
 
 const Conversation = ({lastIndex,item}) => {
 
+  const [messages,setMessages] = useState([]);
+  const token = localStorage.getItem("token")
   const {selectedConversation, setSelectedConversation} = useConversation();
   const isSelectedConversation = selectedConversation?._id ===  item._id;
   const {onlineUsers} = useSocketContext();
   const isOnline = onlineUsers.includes(item._id);
-  const {url} = useAuthContext();
+  const {url,user} = useAuthContext();
   const image = item.image
-  
+  const fromMe = messages[messages.length-1]?.senderId == user._id;
+
+  console.log(item._id);
+  const getMessage = async()=>{
+      try {
+        const response = await axios({
+          method:"get",
+          url:url+`/api/message/${item._id}`,
+          headers:{token},
+        })
+        if(response.data.success){
+          setMessages(response.data.messages)
+        }
+        } catch (error) {
+          toast.error(error.message);
+      }  
+    }
+  useEffect(()=>{
+    getMessage();
+  },[])
+  if(messages.length>0)console.log(messages[messages.length-1].message.slice(0,20))
   return (
     <>
     <div onClick = {()=> setSelectedConversation(item)}className={`flex max-[640px]:h-16 h-20 gap-2 my-2 items-center hover:bg-slate-800 rounded-3xl p-2 py-1 cursor-pointer ${isSelectedConversation?"bg-gradient-to-r from-gray-700 to-gray-800":""}`}>
@@ -20,8 +45,19 @@ const Conversation = ({lastIndex,item}) => {
  						<img src={url+'/images/'+image} alt={item.fullName}/>
  					</div>
  			</div>
-            <div className='flex flex-col justify-between'>
-                    <p className='font-bold max-[640px]:text-xs text-gray-200 '>{item.fullName}</p>
+            <div className='flex flex-col justify-between gap-1'>
+                    <p className='font-bold text-gray-200 max-[640px]:text-xs'>{item.fullName}</p>
+                    <div className='flex items-end gap-1'>
+                      { messages.length>0&&fromMe?<p className='text-xs'>&#x2713;</p>:<></>
+                      }
+                      {
+                        messages.length > 0 ? <p className='text-xs'>{messages[messages.length-1].message.slice(0,20)}</p>
+                        :<p className='text-xs'>Start Conversation</p> 
+                      }
+                      { messages.length>0 &&  
+                        messages[messages.length-1].message.length > 20 ? <p className='text-xs'>...</p> : <></>
+                      }
+                    </div>
             </div>
         </div>
       <div>
