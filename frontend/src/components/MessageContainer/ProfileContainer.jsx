@@ -8,19 +8,19 @@ const ProfileContainer = ({selectedConversation,setShowProfile}) => {
   return (
     <>
     <div className='flex flex-col items-center justify-start mb-10 mt-10'>
-        <div className='w-48 rounded-full'>
+        <div className='w-48 rounded-full shadow-[0px_0px_18px_0px_#f7fafc]'>
               <img className='rounded-full'src={url+'/images/'+selectedConversation.image} alt={selectedConversation.fullName}/>
           </div>
     </div>
     <div className='flex flex-col justify-start mb-auto gap-6'>
         <div className=''>
-            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-x-stone-200 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Name : {selectedConversation.fullName}</p>
+            <p className='text-start p-3 pl-6 h-16 mx-6 rounded-full border-zinc-600 border-2 text-2xl text-zinc-300 font-bold shadow-[0px_0px_10px_0px_#f7fafc]'>Name : {selectedConversation.fullName}</p>    
         </div>
         <div className=''>
-            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-x-stone-200 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Username : {selectedConversation.username}</p>
+            <p className='text-start p-3 pl-6 h-16 mx-6 rounded-full border-zinc-600 border-2 text-2xl text-zinc-300 font-bold shadow-[0px_0px_10px_0px_#f7fafc]'>Username : {selectedConversation.username}</p>
         </div>
         <div className=''>
-            <p className='text-start p-3 h-16 mx-6 rounded-3xl border-x-stone-200 border-2 text-2xl text-white font-bold shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>Gender : {selectedConversation.gender}</p>
+            <p className='text-start p-3 pl-6 h-16 mx-6 rounded-full border-zinc-600 border-2 text-2xl text-zinc-300 font-bold shadow-[0px_0px_10px_0px_#f7fafc]'>Gender : {selectedConversation.gender}</p>
         </div>
         <RemoveFriend selectedConversation={selectedConversation} />
     </div>
