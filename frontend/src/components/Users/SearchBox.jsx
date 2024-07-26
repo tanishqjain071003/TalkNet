@@ -6,7 +6,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 
 const SearchBox = () => {
   return (
-    <div className='w-full h-full p-12 bg-gradient-to-r from-slate-800 to-slate-700 md:flex-row sm:h-[780px] md:h-[780px]'>
+    <div className='w-full h-full p-12 bg-gradient-to-r from-slate-900 to-slate-700 md:flex-row sm:h-[780px] md:h-[780px]'>
         <div className = 'overflow-auto'>
           <SearchInput/>
           <SearchResults/>
