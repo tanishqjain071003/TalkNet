@@ -29,8 +29,7 @@ Here is a working live demo :  https://talknetfrontend.onrender.com/
 ## Mobile support
 The website is media responsive supporting the resolutions of tablet, mobile phone and laptop.
 
-![IMG_3569](https://github.com/user-attachments/assets/ec3bdaff-070a-4ea3-a96b-22255b89d054)
-
+<img width="521" alt="Screenshot 2024-07-26 at 9 15 50 PM" src="https://github.com/user-attachments/assets/967e312b-7ce1-40e8-90b9-54d99f34ac79">
 
 
 ## Built with 
@@ -40,3 +39,4 @@ The website is media responsive supporting the resolutions of tablet, mobile pho
 - Express.js
 - Tailwind CSS
 - MongoDB
+- Socket.io
