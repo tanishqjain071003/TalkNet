@@ -15,7 +15,6 @@ const Conversation = ({lastIndex,item}) => {
   const {onlineUsers} = useSocketContext();
   const isOnline = onlineUsers.includes(item._id);
   const {url,user} = useAuthContext();
-  const image = item.image
   const fromMe = messages[messages.length-1]?.senderId == user._id;
 
   console.log(item._id);
@@ -42,7 +41,7 @@ const Conversation = ({lastIndex,item}) => {
     <div onClick = {()=> setSelectedConversation(item)}className={`flex max-[640px]:h-16 h-20 gap-2 my-2 items-center hover:bg-slate-800 rounded-3xl p-2 py-1 cursor-pointer ${isSelectedConversation?"bg-gradient-to-r from-gray-700 to-gray-800":""}`}>
         <div className={`avatar ${isOnline ? "online":""}`}>
  			    <div className='w-16 max-[640px]:w-8 rounded-full '>
- 						<img src={url+'/images/'+image} alt={item.fullName}/>
+ 						<img src={url+'/images/'+item.image} alt={item.fullName}/>
  					</div>
  			</div>
             <div className='flex flex-col justify-between gap-1'>
