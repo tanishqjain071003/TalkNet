@@ -1,5 +1,5 @@
 # TalkNet
-# ![WebApp]<img width="1440" alt="Screenshot 2024-07-26 at 8 55 31 PM" src="https://github.com/user-attachments/assets/b48dc2e7-8085-4a0a-9d38-63002c3d21ad">
+<img width="1440" alt="Screenshot 2024-07-26 at 8 55 31 PM" src="https://github.com/user-attachments/assets/b48dc2e7-8085-4a0a-9d38-63002c3d21ad">
 
 <table>
 <tr>
