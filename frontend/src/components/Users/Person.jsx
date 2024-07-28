@@ -8,7 +8,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 const Person = ({lastIndex,item}) => {
   
   const token = localStorage.getItem("token")
-  const url = "http://localhost:4000";
+ const {url} = useAuthContext();
 
   const handleClick = async (e) => {
 		e.preventDefault();
