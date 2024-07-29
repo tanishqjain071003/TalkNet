@@ -5,10 +5,9 @@ import LogoutButton from './LogoutButton';
 import { NavLink } from 'react-router-dom'
 
 
-const Profile = () => {
-  const {url} = useAuthContext();
+const Profile = ({showProfile,setShowProfile}) => {
+  	const {url} = useAuthContext();
 	const [user, setUser] = useState({});
-	const [showProfile,setShowProfile] = useState(false);
 	const token = localStorage.getItem("token")
 	
 	const getCurrentUser = async () =>{
@@ -24,18 +23,18 @@ const Profile = () => {
 	useEffect(()=>{
 		getCurrentUser()
 	},[token])
-    const image = user.image;
+
 
   return (
 
-		<div className='flex justify-start items-end max-[640px]:flex-col'>
+		<div onclick = {(showProfile)=>{setShowProfile(!showProfile)}} className='flex justify-start items-end max-[640px]:flex-col'>
         <div onClick={()=>{setShowProfile(!showProfile)}} className='flex gap-2 items-center p-2 py-1 cursor-pointer'>
           <div className='w-12 rounded-full'>
-              <img className='rounded-full'src={url+'/images/'+image} alt='user'/>
+              <img className='rounded-full'src={url+'/images/'+user.image} alt={user.fullName}/>
           </div>
-        <p className='ml-1 text-gray-200 font-semibold  max-[640px]:text-sm'>Hello, {user.fullName}</p>
+        <p className='ml-1 text-gray-200 font-semibold max-[640px]:text-sm'>Hello, {user.fullName}</p>
         </div>
-		<div className='flex gap-2 max-[640px]:flex-col'>
+		<div className='flex gap-2  max-[640px]:flex-col'>
 			<LogoutButton />
 			<NavLink to = '/users'><button className="btn btn-outline btn-info shadow-[0px_0px_11px_1px_#2b6cb0]">Add Friends</button></NavLink>
 		</div>
