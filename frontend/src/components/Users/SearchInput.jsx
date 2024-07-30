@@ -11,7 +11,7 @@ const SearchInput = () => {
 
   	const [search, setSearch] = useState("");
 	const {conversations} = useGetConversations();
-	const url = 'http://localhost:4000';
+	const {url} = useAuthContext();
 	const token = localStorage.getItem("token")
 
   const handleSubmit = async (e) => {
